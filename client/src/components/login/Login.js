@@ -15,6 +15,7 @@ const useStyle = makeStyles({
   contentstyling: {
     height: "70vh",
     width: "90vh",
+    maxWidth: 'unset !important'
   },
   image: {
     backgroundImage: `url(${"https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png"})`,
@@ -49,8 +50,8 @@ const useStyle = makeStyles({
     height: 48,
     borderRadius: 2,
     "&:hover": {
-      backgroundColor: "#fb641b",
-      color: "white",
+        backgroundColor: "white",
+        color: "#2874f0",
     },
   },
   loginstyling2: {

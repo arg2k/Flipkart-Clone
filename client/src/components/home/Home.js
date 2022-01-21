@@ -2,56 +2,59 @@ import NavBar from "./NavBar";
 import HomeCarousel from "./HomeCarousel";
 import { Box } from "@mui/system";
 import { makeStyles } from "@material-ui/core";
-import MultiCarousel from "./MultiCarousel";
+import Slide from "./Slide";
 //import { Items } from "../../constants/data";
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {getItems as listItems} from '../../redux/actions/itemsActions';
+import { getItems as listItems } from "../../redux/actions/itemsActions";
+import MiddlePart from "./MiddlePart";
+import { useTheme } from '@material-ui/core/styles';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme=>({
   outside: {
-    paddingTop: 10,
-    paddingBottom: 0,
-    backgroundColor: "#f2f2f2",
+    // paddingTop: 10,
+    // paddingBottom: 0,
+    // backgroundColor: "#f2f2f2",
+    display: "flex",
+  },
+  leftstyling: {
+    width: "83%",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   sidestuff: {
-    backgroundColor: "white",
-    paddingTop: 4,
-    paddingLeft: 4,
-    paddingRight: 4,
-    paddingBottom: 3,
-    margin: "8px 100px 0px 0px",
+    marginTop: 12,
+    background: "#FFFFFF",
+    width: "17%",
+    marginLeft: 10,
+    padding: 5,
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
-});
+}));
 
-const Home = () => {
+const Home = ({ items }) => {
   const classes = useStyle();
-  const imgURL = "https://rukminim1.flixcart.com/flap/464/708/image/a33323ee3a5b0bc5.jpg?q=70";
-  
-  const {items} = useSelector(state=> state.getItems);
-  const dispatch = useDispatch();
-
-  useEffect(()=> {
-    dispatch(listItems())
-  },[dispatch])
+  const theme = useTheme();
+  const imgURL =
+    "https://rukminim1.flixcart.com/flap/464/708/image/a33323ee3a5b0bc5.jpg?q=70";
 
   return (
-    <div>
-      <NavBar />
       <Box className={classes.outside}>
-        <HomeCarousel />
-        <Box style={{ display: "flex" }}>
-          <Box style={{ width: "80.8%" }}>
-            <MultiCarousel timer={true} title="Deal of the Day" Items={items}/>
-          </Box>
-          <Box className={classes.sidestuff}>
-            <img src={imgURL} style={{ height: 364, width: 236 }}></img>
-          </Box>
+        <Box className={classes.leftstyling}>
+          <Slide
+            timer={true}
+            title="Deals of the Day"
+            multi={true}
+            Items={items}
+          />
         </Box>
-        <MultiCarousel timer={false} title="Discounts for You" Items={items}/>
-        <MultiCarousel timer={false} title="Suggested Items" Items={items}/>
+        <Box className={classes.sidestuff}>
+          <img src={imgURL} style={{ width: 236 }}></img>
+        </Box>
       </Box>
-    </div>
   );
 };
 

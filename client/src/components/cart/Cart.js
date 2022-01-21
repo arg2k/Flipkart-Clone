@@ -8,15 +8,23 @@ import RightSide from "./RightSide";
 import { payMoney } from "../../service/Api";
 import { post } from '../../utilities/payment';
 import { useState } from "react";
+import { useTheme } from "@emotion/react";
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme =>({
   outside: {
-    marginTop: 55,
+    //marginTop: 55,
     padding: "30px 135px",
     display: "flex",
+    [theme.breakpoints.down('sm')]: {
+      padding: '15px 0'
+  }
   },
   leftstyling: {
-    width: "67%",
+    //width: "67%",
+    paddingRight: 15,
+        [theme.breakpoints.down('sm')]: {
+            marginBottom: 15
+        }
   },
   rightstyling: {
     width: "67%",
@@ -29,8 +37,8 @@ const useStyle = makeStyles({
     backgroundColor: "#fb641b",
     color: "white",
     borderRadius: 2,
-    width: 270,
-    height: 50,
+    width: 250,
+    height: 51,
     display: "flex",
     marginLeft: "auto",
     "&:hover": {
@@ -44,11 +52,12 @@ const useStyle = makeStyles({
     borderTop: "1px solid #f0f0f0",
     boxShadow: "0 -2px 10px 0 rgb(0 0 0 /10%)",
   },
-});
+}));
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.addItemToCart);
   const dispatch = useDispatch();
+  const theme = useTheme();
   const removehandler = (id) => {
     dispatch(removeItemFromCart(id));
   };

@@ -44,14 +44,19 @@ import { Link } from "react-router-dom";
 const useStyle = makeStyles((theme) => ({
   search: {
     //float: 'left',
-    paddingLeft: 15,
+    // paddingLeft: 15,
+    // borderRadius: 2,
+    // marginLeft: 15,
+    // marginBottom: 8,
+    // width: "29%",
+    // height: "55%",
+    // backgroundColor: "#fff",
+    // display: "flex",
     borderRadius: 2,
-    marginLeft: 15,
-    marginBottom: 8,
-    width: "29%",
-    height: "55%",
-    backgroundColor: "#fff",
-    display: "flex",
+    marginLeft: 10,
+    width: '38%',
+    backgroundColor: '#fff',
+    display: 'flex'
   },
   searchIcon: {
     marginLeft: "auto",
@@ -62,6 +67,7 @@ const useStyle = makeStyles((theme) => ({
   inputRoot: {
     fontSize: "unset",
     width: "100%",
+    paddingLeft: 15
   },
   inputInput: {
     paddingLeft: 20,
@@ -71,7 +77,7 @@ const useStyle = makeStyles((theme) => ({
     color: 'black',
     backgroundColor: 'white',
     marginTop: '36px',
-    marginLeft: '-15px',
+    //marginLeft: '-15px',
     textDecoration: 'none'
   }
 }));

@@ -1,31 +1,34 @@
 import { navData } from "../../constants/data";
 import { Box, Typography, makeStyles } from "@material-ui/core";
+import { useTheme } from "@emotion/react";
 
 const useStyle = makeStyles(theme=>({
     outside: {
         display: 'flex',
-        margin: '55px 370px 10px 330px',
         justifyContent: 'space-between',
+        margin: '55px 130px 0 130px',
         overflowX: 'overlay',
-        [theme.breakpoints.down('xl')]: {
-          margin: 0
+        [theme.breakpoints.down('md')]: {
+            margin: 0
         }
     },
     inside: {
+        padding: '12px 8px',
         textAlign: 'center'
     },
     imgStyle: {
         width: 64,
-        padding: '12px 10px 1px 10px',
+        //padding: '12px 10px 1px 10px',
     },
     textStyle: {
-        fontSize: 13,
+        fontSize: 14,
         fontWeight: 550
     }
 }))
 
 const NavBar = () => {
     const classes = useStyle();
+    const theme = useTheme();
   return (
     <Box className={classes.outside}>
       {navData.map((data) => (

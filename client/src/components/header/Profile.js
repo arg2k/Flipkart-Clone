@@ -1,9 +1,10 @@
 import { Typography, Menu, MenuItem, makeStyles, Link } from "@material-ui/core";
 import { useState } from "react";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
+import { useTheme } from "@emotion/react";
 // import { Link } from "react-router-dom";
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme =>({
   styling: {
     marginTop: 40,
   },
@@ -11,11 +12,18 @@ const useStyle = makeStyles({
     marginLeft: 20,
     fontSize: 15,
   },
-});
+  textstyling : {
+    color: 'white',
+    [theme.breakpoints.down("md")]: {
+      color: "#2874f0",
+    },
+  }
+}));
 
 const Profile = ({ acc, setAcc }) => {
   const [open, setOpen] = useState(false);
   const classes = useStyle();
+  const theme = useTheme();
   const menuCloseHandler = () => {
     setOpen(false);
   };
@@ -31,7 +39,7 @@ const Profile = ({ acc, setAcc }) => {
   return (
     <>
       <Link style={{cursor: "pointer",textDecoration: "none" }} >
-        <Typography onClick={menuOpenHandler} style={{ marginTop: 2 }}>
+        <Typography onClick={menuOpenHandler} className={classes.textstyling} style={{ marginTop: 2 }}>
           {acc}
         </Typography>
       </Link>
