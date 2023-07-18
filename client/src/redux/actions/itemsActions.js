@@ -1,10 +1,6 @@
 import axios from "axios";
 import * as action from '../constants/itemConstant';
-<<<<<<< HEAD
 const url = 'http://13.233.30.28:8000';
-=======
-const url = 'http://localhost:8000';
->>>>>>> 94b663f6fafc0c0552a736e1a5443d6bf0a9b278
 
 export const getItems = () => async (dispatch) => {
     try 
