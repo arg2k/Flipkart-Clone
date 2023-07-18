@@ -10,7 +10,10 @@ import { post } from "../../utilities/payment";
 import { LoginContext } from "../../context/ContextProvider";
 import { useContext, useState } from "react";
 import { useTheme } from "@emotion/react";
+<<<<<<< HEAD
 import axios from "axios";
+=======
+>>>>>>> 94b663f6fafc0c0552a736e1a5443d6bf0a9b278
 
 const useStyle = makeStyles((theme) => ({
   outside: {
@@ -46,6 +49,7 @@ const Leftitems = ({ item }) => {
     navigate("/cart");
   };
 
+<<<<<<< HEAD
   // const buyNowHelper = async () => {
   //   let res = await payMoney({ amount: 200, email: "argha111234@gmail.com" });
   //   let info = {
@@ -87,6 +91,16 @@ const Leftitems = ({ item }) => {
    razor.open();
  }
  
+=======
+  const buyNowHelper = async () => {
+    let res = await payMoney({ amount: 200, email: "argha111234@gmail.com" });
+    let info = {
+      action: "http://securegw-stage.paytm.in/order/process",
+      params: res,
+    };
+    post(info);
+  };
+>>>>>>> 94b663f6fafc0c0552a736e1a5443d6bf0a9b278
   return (
     <Box className={classes.outside}>
       <img src={item.detailUrl} className={classes.imgstyling} />

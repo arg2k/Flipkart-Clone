@@ -9,8 +9,11 @@ import { payMoney } from "../../service/Api";
 import { post } from '../../utilities/payment';
 import { useState } from "react";
 import { useTheme } from "@emotion/react";
+<<<<<<< HEAD
 import axios from "axios";
 
+=======
+>>>>>>> 94b663f6fafc0c0552a736e1a5443d6bf0a9b278
 
 const useStyle = makeStyles(theme =>({
   outside: {
@@ -63,6 +66,7 @@ const Cart = () => {
   const removehandler = (id) => {
     dispatch(removeItemFromCart(id));
   };
+<<<<<<< HEAD
   // const buyNowHelper = async () => {
   //   let res = await payMoney({ amount: 200, email: "argha111234@gmail.com" });
   //   let info = {
@@ -102,6 +106,16 @@ const Cart = () => {
     const razor = new window.Razorpay(options);
     razor.open();
   }
+=======
+  const buyNowHelper = async () => {
+    let res = await payMoney({ amount: 200, email: "argha111234@gmail.com" });
+    let info = {
+      action: "http://securegw-stage.paytm.in/order/process",
+      params: res,
+    };
+    post(info);
+  };
+>>>>>>> 94b663f6fafc0c0552a736e1a5443d6bf0a9b278
   const classes = useStyle();
   const [total, setTotal] = useState(0);
   const [discount, setDiscount] = useState(0);
