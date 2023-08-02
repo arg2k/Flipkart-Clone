@@ -1,3 +1,10 @@
+
+const Config = {
+    ip: 'http://localhost',
+};
+  
+export default Config;
+
 export const Items = [
     { 
         id: 'product1',

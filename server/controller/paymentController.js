@@ -1,6 +1,7 @@
 import { instance } from "../index.js";
 import crypto from "crypto";
 import { Payment } from "../model/paymentSchema.js";
+import Config from "../../server/constants/Items.js";
 
 export const checkout = async (req, res) => {
   console.log(req);
@@ -42,7 +43,7 @@ export const paymentVerification = async (req, res) => {
     });
 
     res.redirect(
-      `http://13.233.30.28:3000`
+      `${Config.ip}:3000`
     );
   } else {
     res.status(400).json({

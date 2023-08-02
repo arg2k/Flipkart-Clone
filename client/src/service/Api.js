@@ -1,11 +1,12 @@
 import axios from 'axios';
+import Config from "../constants/data.js";
 
-const url = 'http://13.233.30.28:8000';
+// const url = '${Config.ip}';
 
 export const authenticateSignup = async(user) => {
     try
     {
-        return await axios.post(`${url}/signup`, user);
+        return await axios.post(`${Config.ip}:8000/signup`, user);
     }
     catch(error)
     {
@@ -16,7 +17,7 @@ export const authenticateSignup = async(user) => {
 export const authenticateLogin = async(user) => {
     try
     {
-        return await axios.post(`${url}/login`, user);
+        return await axios.post(`${Config.ip}:8000/login`, user);
     }
     catch(error)
     {
@@ -28,7 +29,7 @@ export const authenticateLogin = async(user) => {
 export const payMoney = async(info) => {
     try
     {
-        let res = await axios.post(`${url}/payment`, info);
+        let res = await axios.post(`${Config.ip}:8000/payment`, info);
         return res.data;
     }
     catch(error)

@@ -1,11 +1,12 @@
 import axios from "axios";
 import * as action from '../constants/itemConstant';
-const url = 'http://13.233.30.28:8000';
+import Config from "../../constants/data.js";
+// const url = '${Config.ip}';
 
 export const getItems = () => async (dispatch) => {
     try 
     {
-        const {data} = await axios.get(`${url}/items`);
+        const {data} = await axios.get(`${Config.ip}:8000/items`);
         dispatch({type: action.GET_ITEMS_SUCCESS, payload: data });
     }
     catch(err)
@@ -18,7 +19,7 @@ export const getItems = () => async (dispatch) => {
 export const getItemInfo = (id) => async (dispatch) => {
     try 
     {
-        const {data} = await axios.get(`${url}/item/${id}`);
+        const {data} = await axios.get(`${Config.ip}:8000/item/${id}`);
         dispatch({type: action.GET_ITEM_INFO_SUCCESS, payload: data });
     }
     catch(err)

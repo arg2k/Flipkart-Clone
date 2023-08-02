@@ -11,6 +11,7 @@ import { LoginContext } from "../../context/ContextProvider";
 import { useContext, useState } from "react";
 import { useTheme } from "@emotion/react";
 import axios from "axios";
+import Config from "../../constants/data.js";
 
 const useStyle = makeStyles((theme) => ({
   outside: {
@@ -56,9 +57,9 @@ const Leftitems = ({ item }) => {
   // };
 
   const buyNowHelper = async () => {
-    const { data: { key } } = await axios.get("http://13.233.30.28:8000/getkey")
+    const { data: { key } } = await axios.get(`${Config.ip}:8000/getkey`)
 
-   const { data: { order } } = await axios.post("http://13.233.30.28:8000/checkout", {
+   const { data: { order } } = await axios.post(`${Config.ip}:8000/checkout`, {
        amount:500
    })
 
@@ -70,7 +71,7 @@ const Leftitems = ({ item }) => {
        description: "Tutorial of RazorPay",
        //image: "https://avatars.githubusercontent.com/u/25058652?v=4",
        order_id: order.id,
-       callback_url: "http://13.233.30.28:8000/paymentverification",
+       callback_url: `${Config.ip}:8000/paymentverification`,
        prefill: {
          name: "Argha Kole",
          email: "arghakole@email.com",

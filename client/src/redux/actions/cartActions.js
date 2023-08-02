@@ -1,12 +1,12 @@
 import axios from "axios";
 import * as actionTypes from '../constants/cartConstant';
-
-const url = 'http://13.233.30.28:8000';
+import Config from "../../constants/data.js";
+// const url = '${Config.ip}';
 
 export const addItemToCart = (id) => async(dispatch) => {
     try
     {
-        const {data} = await axios.get(`${url}/item/${id}`);
+        const {data} = await axios.get(`${Config.ip}:8000/item/${id}`);
         //console.log(data);
         dispatch({type: actionTypes.ADD_ITEM_TO_CART, payload: data});
     }
